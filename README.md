@@ -184,11 +184,13 @@ Dari hasil error yang ditampilkan, nilai error terbesar dari hasil model tuning 
 Adanya nilai-nilai error yang besar membuat perbedaan yang cukup signifikan antara nilai RMSE dan MAE. Hal ini dapat tergambarkan pula pada plot di atas, di mana terdapat harga aktual yang rendah tapi diprediksi jauh lebih tinggi (overestimation), dan juga sebaliknya (underestimation). Akan tetapi, nilai RMSE yang didapat, yaitu sebesar 47682.54 menjadikan model ini dapat dikategorikan ke dalam 'reasonable forecasting'.
 Dari hasil yang didapatkan, error terbesar disebabkan dari HallwayType : Terraced
 
-## **Conlusion**
+## **Conclusion**
+
 Berdasarkan pemodelan yang sudah dilakukan, fitur 'Size' dan 'N_FacilitiesApt' menjadi fitur yang paling berpengaruh terhadap 'SalePrice'.
 Metrik evaluasi yang digunakan pada model adalah nilai R2, MAE, MSE & RMSE. Jika ditinjau dari nilai RMSE yang dihasilkan oleh model setelah dilakukan hyperparameter tuning, yaitu sebesar 47682.54, kita dapat menyimpulkan bahwa bila nanti model yang kita buat ini digunakan untuk memperkirakan harga SalePrice baru di Daegu pada rentang nilai seperti yang dilatih terhadap model (maksimal harga 585840.00) **untuk satuan harga tidak diketahui, karena tidak ada di deskripsi data atau dictionary data yang diberikan**, maka perkiraan harganya rata-rata akan meleset kurang lebih sebesar **38890.38** dari harga yang mungkin seharusnya. Tetapi, tidak menutup kemungkinan juga prediksinya meleset karena bias yang dihasilkan model masih cukup tinggi bila dilihat dari visualisasi antara harga aktual dan prediksi. Bias yang dihasilkan oleh model ini dikarenakan oleh fitur HallwayType yaitu Terraced dan kurangnya fitur pada dataset yang bisa merepresentasikan aspek properti apartemen dan juga services seperti jumlah kamar dalam unit apartemen, biaya maintenance dan lain-lain.
 
-##**Recomendation**
+## **Recomendation**
+
 Hal-hal yang dapat dilakukan untuk mengembangkan model agar lebih baik lagi, seperti:
 - Mengecek prediksi mana saja yang memiliki nilai error yang tinggi. Kita dapat mengelompokkan error tersebut ke dalam grup overestimation dan underestimation, lalu memilih 5% error paling ekstrim saja untuk tiap grup. Nantinya pengelompokkan akan menjadi 3 grup, yaitu overestimation (5%), underestimation (5%), dan grup mayoritas yang error-nya mendekati nilai mean (90%). Setelahnya kita bisa mengecek hubungan antara error tersebut dengan tiap variabel independen. Pada akhirnya kita dapat mengetahui sebenarnya variabel mana saja dan aspek apa yang menyebabkan model menghasilkan error yang tinggi, sehingga kita bisa melakukan training ulang dengan penerapan feature engineering lainnya.
 - Jika memungkinkan, penambahan fitur yang lebih korelatif dengan target ('SalePrice'), seperti jumlah kamar dalam satu unit,  jarak ke pusat kota & biaya maintenance apartemen. Selain itu, adanya penambahan data terkini untuk Daegu Apartemen Data tentu akan dapat mengimprovisasi kapasitas prediksi dari model. Namun, kalau jumlah data dan fiturnya masih seperti dataset ini, kemungkinan besar tidak akan mengubah hasilnya secara signifikan.
